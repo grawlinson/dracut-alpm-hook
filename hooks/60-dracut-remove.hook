@@ -1,0 +1,16 @@
+[Trigger]
+Type = File
+Operation = Remove
+Target = usr/lib/modules/*/pkgbase
+
+[Trigger]
+Type = Package
+Operation = Remove
+Target = dracut
+Target = dracut-git
+
+[Action]
+Description = Remove linux initcpios...
+When = PreTransaction
+Exec = /usr/share/libalpm/scripts/dracut-remove
+NeedsTargets
